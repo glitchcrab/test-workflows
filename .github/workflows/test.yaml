@@ -1,0 +1,23 @@
+name: Build and push Ubuntu image
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+env:
+  REGISTRY: docker.io
+  IMAGE_OWNER: glitchcrab
+  IMAGE_NAME: ubuntu-debug
+
+jobs:
+  debug_info:
+    name: Debug info
+    runs-on: self-hosted
+    steps:
+      - name: Print github context JSON
+        run: |
+          cat <<EOF
+          ${{ toJson(github) }}
+          EOF
