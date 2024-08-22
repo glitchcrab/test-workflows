@@ -14,7 +14,8 @@ env:
 jobs:
   debug_info:
     name: Debug info
-    runs-on: self-hosted
+    #runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Print github context JSON
         run: |
